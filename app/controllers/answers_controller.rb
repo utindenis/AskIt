@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AnswersController < ApplicationController
-  include ActiovView::RecordIdentifier
+  include ActionView::RecordIdentifier
   before_action :set_question!
   before_action :set_answer!, except: :create
 
@@ -23,7 +23,9 @@ class AnswersController < ApplicationController
       flash[:success] = 'Answer created!'
       redirect_to question_path(@question)
     else
-      @pagy, @answers = pagy @question.answers.order(created_at: :desc)
+      @question = @question.decorate
+      @pagy, @answers = pagy @question.answers.order created_at: :desc
+      @answers = @answers.decorate
       render 'questions/show'
     end
   end

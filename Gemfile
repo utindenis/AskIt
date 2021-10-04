@@ -25,8 +25,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'activerecord-import', '~> 1.2'
 gem 'caxlsx', '~> 3.1'
 gem 'caxlsx_rails', '~> 0.6'
+gem 'dotenv-rails'
 gem 'draper', '~> 4.0'
+gem 'i18n-tasks', '~> 0.9.34'
+gem 'lokalise_rails', '~> 2'
 gem 'pagy', '~> 4.10'
+gem 'rails-i18n', '~> 6'
 gem 'rubyXL', '~> 3.4'
 gem 'rubyzip', '~> 2'
 gem 'valid_email2', '~> 4.0'
@@ -53,6 +57,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'rubocop', '~> 1.20', require: false
+  gem 'rubocop-i18n', '~> 3', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
   gem 'rubocop-rails', '~> 2.12', require: false
   gem 'spring'

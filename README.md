@@ -1,1 +1,3 @@
 # AskIt
+`questions` 
+`answers`

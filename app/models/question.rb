@@ -13,11 +13,12 @@ class Question < ApplicationRecord
 
   scope :all_by_tags, ->(tags) do
     questions = includes(:user)
-    questions = if tags
-                  questions.joins(:tags).where(tags: tags).preload(:tags)
-                else
-                  questions.includes(:question_tags, :tags)
-                end
+    if tags
+      questions = questions.joins(:tags).where(tags: tags).preload(:tags)
+    else
+      questions = questions.includes(:question_tags, :tags)
+    end
+
     questions.order(created_at: :desc)
   end
 end
